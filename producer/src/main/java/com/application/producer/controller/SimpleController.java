@@ -1,6 +1,6 @@
 package com.application.producer.controller;
 
-import com.application.producer.kafka.model.JsonMessage;
+import com.application.common.kafka.model.JsonMessage;
 import com.application.producer.kafka.service.ProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;

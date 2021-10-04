@@ -15,12 +15,12 @@ server:
 
 spring:
     kafka:
-        bootstrap-servers: localhost:29092
         consumer:
             properties:
                 spring:
                     json:
                         trusted:
                             packages: "*"
-            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#        bootstrap-servers: localhost:29092

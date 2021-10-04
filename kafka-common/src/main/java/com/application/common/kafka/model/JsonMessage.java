@@ -1,4 +1,4 @@
-package com.application.producer.kafka.model;
+package com.application.common.kafka.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

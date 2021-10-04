@@ -1,7 +1,7 @@
 package com.application.producer.kafka.service;
 
-import com.application.producer.kafka.config.ProducerCustomConfig;
-import com.application.producer.kafka.model.JsonMessage;
+import com.application.common.kafka.config.KafkaConfiguration;
+import com.application.common.kafka.model.JsonMessage;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class ProducerService {
         log.debug("================== produce an event");
 
         final ListenableFuture<SendResult<String, JsonMessage>> future =
-            template.send(ProducerCustomConfig.TESTING_TOPIC, key, message);
+            template.send(KafkaConfiguration.TESTING_TOPIC, key, message);
 
         future.addCallback(new KafkaSendCallback<>() {
 

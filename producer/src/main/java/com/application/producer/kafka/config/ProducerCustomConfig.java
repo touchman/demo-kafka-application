@@ -1,11 +1,12 @@
 package com.application.producer.kafka.config;
 
-import com.application.producer.kafka.model.JsonMessage;
-import org.apache.kafka.clients.admin.NewTopic;
+import com.application.common.kafka.config.KafkaConfiguration;
+import com.application.common.kafka.model.JsonMessage;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.config.TopicBuilder;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
@@ -14,14 +15,20 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
+@Configuration
+@Import(KafkaConfiguration.class)
 public class ProducerCustomConfig {
 
-    public static final String TESTING_TOPIC = "testing-topic";
     public static final String KAFKA = "localhost:29092";
 
     @Bean
-    public ProducerFactory<String, JsonMessage> producerFactory(final Map<String, Object> producerConfigs) {
-        return new DefaultKafkaProducerFactory<>(producerConfigs);
+    public KafkaTemplate<String, JsonMessage> kafkaTemplate(final ProducerFactory<String, JsonMessage> producerFactory) {
+        return new KafkaTemplate<>(producerFactory);
+    }
+
+    @Bean
+    public ProducerFactory<String, JsonMessage> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
@@ -34,16 +41,4 @@ public class ProducerCustomConfig {
         return props;
     }
 
-    @Bean
-    public KafkaTemplate<String, JsonMessage> kafkaTemplate(final ProducerFactory<String, JsonMessage> producerFactory) {
-        return new KafkaTemplate<>(producerFactory);
-    }
-
-    @Bean
-    public NewTopic topic() {
-        return TopicBuilder.name(TESTING_TOPIC)
-            .partitions(10)
-            .replicas(1)
-            .build();
-    }
 }
