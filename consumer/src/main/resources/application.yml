@@ -1,12 +1,26 @@
+logging:
+    file:
+        name: consumer.log
+    level:
+        com:
+            application:
+                consumer: debug
 management:
     endpoints:
         web:
             exposure:
-                include: health,prometheus
-    metrics:
-        export:
-            prometheus:
-                enabled: true
-        distribution:
-            percentiles-histogram:
-                "[http.server.requests]": true
+                include: health
+server:
+    port: 8090
+
+spring:
+    kafka:
+        bootstrap-servers: localhost:29092
+        consumer:
+            properties:
+                spring:
+                    json:
+                        trusted:
+                            packages: "*"
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

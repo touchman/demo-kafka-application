@@ -34,3 +34,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### applications
+
+consumer.log
+consumer.log*.gz
+producer.log
+producer.log*gz
