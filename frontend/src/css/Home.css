@@ -38,3 +38,15 @@
   border-collapse:separate;
   padding-bottom: 1em;
 }
+
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
