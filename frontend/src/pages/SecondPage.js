@@ -2,6 +2,7 @@ import React from 'react';
 import '../puzzle/v1/puzzle.css';
 import '../puzzle/v1/style.css';
 import '../css/Home.css';
+import Compliment from "./Compliment";
 
 let logo = "image/nata/1.jpg"
 
@@ -37,6 +38,7 @@ class SecondPage extends React.Component {
                         <img src={logo} className="App-logo" alt="logo" />
                     </div>
                 </div>
+                <Compliment/>
                 <Puzzle/>
                 <div className="row">
                     <div className="column">

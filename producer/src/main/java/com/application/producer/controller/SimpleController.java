@@ -4,6 +4,7 @@ import com.application.common.kafka.model.JsonMessage;
 import com.application.producer.kafka.service.ProducerService;
 import com.application.producer.service.ComplimentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,7 @@ public class SimpleController {
         return complimentService.getComplimentsSet();
     }
 
+    @CrossOrigin
     @GetMapping("/compliments/random")
     public String getRandomCompliment() {
         Random random = new Random();
