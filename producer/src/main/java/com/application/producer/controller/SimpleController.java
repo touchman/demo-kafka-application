@@ -2,8 +2,8 @@ package com.application.producer.controller;
 
 import com.application.common.kafka.model.JsonMessage;
 import com.application.producer.kafka.service.ProducerService;
+import com.application.producer.service.ComplimentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,17 +17,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SimpleController {
 
     private final ProducerService producerService;
+    private final ComplimentService complimentService;
 
     private final AtomicInteger atomicInteger = new AtomicInteger(1);
 
     private final List<String> jobs = List.of("developer", "cashier", "accountant", "worker");
 
-    @GetMapping("/names")
+    @GetMapping("/compliments")
     public List<String> get() {
-        return List.of("Sergey", "Danila");
+        return complimentService.getComplimentsSet();
     }
 
-    @Scheduled(fixedDelay = 5000)
+    @GetMapping("/compliments/random")
+    public String getRandomCompliment() {
+        Random random = new Random();
+        return complimentService.getComplimentsSet().get(random.nextInt(complimentService.getComplimentsSet().size()));
+    }
+
+//    @Scheduled(fixedDelay = 5000)
     public void emitEvents() {
         Random random = new Random();
         producerService.produce(Integer.toString(atomicInteger.getAndIncrement()),
