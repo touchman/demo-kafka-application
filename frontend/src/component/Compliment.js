@@ -1,8 +1,5 @@
 import React from "react";
-
-const RANDOM_COMPLIMENT_URL = "http://localhost:8080/compliments/random";
-
-const timeout = 7000;
+import configData from "../config.json";
 
 class Compliment extends React.Component {
     constructor(props) {
@@ -18,7 +15,7 @@ class Compliment extends React.Component {
         this.fetch()
         this.complement = setInterval(
             () => this.fetch(),
-            timeout
+            configData.COMPLIMENT_UPDATE_TIMEOUT
         )
     }
 
@@ -27,7 +24,7 @@ class Compliment extends React.Component {
     }
 
     fetch() {
-        fetch(RANDOM_COMPLIMENT_URL)
+        fetch(configData.RANDOM_COMPLIMENT_URL)
             .then(res => res.text())
             .then(
                 (result) => {

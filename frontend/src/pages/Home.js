@@ -1,25 +1,14 @@
 //import logo from "../logo.svg";
 import '../css/Home.css';
 import React from 'react';
-import Compliment from "./Compliment";
+import Compliment from "../component/Compliment";
 
 let logo = "image/nata/1.jpg"
-const nextPage = "http://localhost:3000/second"
+const nextPage = "http://localhost:3000/level1"
 
 function Home() {
     return (
         <header className="App-header">
-            <div className="row">
-                <div className="column">
-                    <img src={logo} className="App-logo" alt="logo" />
-                </div>
-                <div className="column">
-                    <img src={logo} className="App-logo" alt="logo" />
-                </div>
-                <div className="column">
-                    <img src={logo} className="App-logo" alt="logo" />
-                </div>
-            </div>
             <a
                 className="App-link"
                 href="https://www.instagram.com/_star_in_sky_/"
