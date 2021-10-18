@@ -2,48 +2,36 @@ import React from 'react';
 import '../css/Home.css';
 import Compliment from "../component/Compliment";
 import NextPage from "../component/NextPage";
+import RotatingElements from "../component/RotatingElements";
 import {Puzzle, startGame} from "../component/puzzle/puzzle";
+import '../css/Level_1.css'
 
-let logo = "image/nata/300x300.jpg"
+let logos = ["image/other/leg.png", "image/nata/fighter.png"]
 
 var images = [
-    {src: logo, title: 'London Bridge'},
+    {src: "image/nata/300x300.jpg", title: 'London Bridge'},
 ];
-
-const gridSize1 = 3;
 
 class Level_1 extends React.Component {
     componentDidMount() {
-        startGame(images, gridSize1);
+        startGame(images);
     }
 
     render() {
         return (
-            <div className="SecondPage">
+            <div className="Puzzle Level1">
                 <div className="row">
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
+                    <RotatingElements logos={logos}/>
+                    <RotatingElements logos={logos}/>
+                    <RotatingElements logos={logos}/>
                 </div>
                 <Compliment/>
                 <Puzzle images={images}/>
                 <NextPage nextPageLink={"level2"}/>
                 <div className="row">
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
-                    <div className="column">
-                        <img src={logo} className="App-logo" alt="logo"/>
-                    </div>
+                    <RotatingElements logos={logos}/>
+                    <RotatingElements logos={logos}/>
+                    <RotatingElements logos={logos}/>
                 </div>
             </div>
         );

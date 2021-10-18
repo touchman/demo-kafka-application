@@ -1,4 +1,4 @@
 {
-  "RANDOM_COMPLIMENT_URL": "http://localhost:8080/compliments/random",
+  "RANDOM_COMPLIMENT_HOST": "http://localhost:8080",
   "COMPLIMENT_UPDATE_TIMEOUT": 7000
 }

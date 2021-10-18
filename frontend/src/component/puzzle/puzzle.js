@@ -2,11 +2,11 @@ import React from 'react';
 import '../../puzzle/v1/puzzle.css';
 import '../../puzzle/v1/style.css';
 
-const gridSize1 = 3;
+const gridSize = 4;
 
 class Puzzle extends React.Component {
     componentDidMount() {
-        setImage(this.props.images, gridSize1);
+        setImage(this.props.images, gridSize);
     }
 
     render() {
@@ -21,7 +21,7 @@ function isSorted (arr) {
     let sorted = true;
 
     for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i] > arr[i+1]) {
+        if (arr[i] > parseInt(arr[i+1])) {
             sorted = false;
             break;
         }
@@ -81,8 +81,6 @@ function setImage(images, gridSize = 4) {
 
 
                 let vals = Array.from(helper.doc('sortable').children).map(x => x.id);
-                console.log("sorted " + isSorted(vals))
-                console.log(vals)
                 if (isSorted(vals)) {
                     helper.doc("result").hidden = false;
                 }
@@ -94,7 +92,7 @@ function setImage(images, gridSize = 4) {
     helper.shuffle('sortable');
 }
 
-function startGame(images, gridSize) {
+function startGame(images) {
     setImage(images, gridSize);
     helper.doc('playPanel').style.display = 'block';
     helper.shuffle('sortable');

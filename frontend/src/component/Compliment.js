@@ -1,5 +1,8 @@
 import React from "react";
 import configData from "../config.json";
+import '../css/text-shadow-black.css'
+
+let cat = "image/cat/pushistaya_semka_small.png"
 
 class Compliment extends React.Component {
     constructor(props) {
@@ -24,7 +27,7 @@ class Compliment extends React.Component {
     }
 
     fetch() {
-        fetch(configData.RANDOM_COMPLIMENT_URL)
+        fetch(configData.RANDOM_COMPLIMENT_HOST + "/compliments/random")
             .then(res => res.text())
             .then(
                 (result) => {
@@ -45,13 +48,22 @@ class Compliment extends React.Component {
     render() {
         const { error, isLoaded, compliment } = this.state;
         if (error) {
-            return <div>Error: {error.message}</div>;
+            return <div className="text-shadow-black">Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div className="text-shadow-black">Loading...</div>;
         } else {
             return (
-                <div className="compliment">
-                    <span>{compliment}</span>
+                <div className="text-shadow-black">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src={cat} alt="cat"/>
+                            </td>
+                            <td>
+                                <span>{compliment}</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             );
         }
