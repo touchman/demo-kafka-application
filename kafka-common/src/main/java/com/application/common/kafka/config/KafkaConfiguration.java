@@ -9,6 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaConfiguration {
 
     public static final String TESTING_TOPIC = "testing-topic";
+    public static final String WORDS_COUNT_TOPIC = "words-count-topic";
 
     @Bean
     public NewTopic topic() {

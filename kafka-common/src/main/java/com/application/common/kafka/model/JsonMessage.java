@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class JsonMessage {
-    private String name;
-    private String job;
+    private String compliment;
 }

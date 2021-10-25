@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Home.css';
 import Compliment from "../component/Compliment";
+import ComplimentCount from "../component/ComplimentCount";
 import NextPage from "../component/NextPage";
 import RotatingElements from "../component/RotatingElements";
 import {Puzzle, startGame} from "../component/puzzle/puzzle";
@@ -33,6 +34,7 @@ class Level_1 extends React.Component {
                     <RotatingElements logos={logos}/>
                     <RotatingElements logos={logos}/>
                 </div>
+                <ComplimentCount/>
             </div>
         );
     }

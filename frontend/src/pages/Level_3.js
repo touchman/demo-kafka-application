@@ -5,6 +5,7 @@ import {Puzzle, startGame} from "../component/puzzle/puzzle";
 import NextPage from "../component/NextPage";
 import RotatingElements from "../component/RotatingElements";
 import '../css/Level_3.css'
+import ComplimentCount from "../component/ComplimentCount";
 
 let logos = ["image/other/leg.png", "image/nata/fighter.png"]
 
@@ -28,6 +29,7 @@ class Level_3 extends React.Component {
                 <Compliment/>
                 <Puzzle images={images}/>
                 <NextPage nextPageLink={"level4"}/>
+                <ComplimentCount/>
             </div>
         );
     }

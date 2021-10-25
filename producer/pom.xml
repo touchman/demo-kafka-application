@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>org.example</groupId>
 			<artifactId>kafka-common</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -94,6 +94,8 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${dockerPluginSkip}</skip>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
@@ -114,6 +116,8 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${dockerPluginSkip}</skip>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
@@ -133,6 +137,8 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${dockerPluginSkip}</skip>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
@@ -155,6 +161,8 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<!--suppress UnresolvedMavenProperty -->
+							<skip>${dockerPluginSkip}</skip>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>

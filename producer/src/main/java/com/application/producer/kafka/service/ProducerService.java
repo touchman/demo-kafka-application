@@ -24,7 +24,7 @@ public class ProducerService {
         log.debug("================== produce an event");
 
         final ListenableFuture<SendResult<String, JsonMessage>> future =
-            template.send(KafkaConfiguration.TESTING_TOPIC, key, message);
+            template.send(KafkaConfiguration.WORDS_COUNT_TOPIC, key, message);
 
         future.addCallback(new KafkaSendCallback<>() {
 

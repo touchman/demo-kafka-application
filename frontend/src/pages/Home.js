@@ -2,6 +2,7 @@
 import '../css/Home.css';
 import React from 'react';
 import Compliment from "../component/Compliment";
+import ComplimentCount from "../component/ComplimentCount";
 
 let logo = "image/nata/1.jpg"
 const nextPage = "http://localhost:3000/level1"
@@ -28,6 +29,7 @@ function Home() {
                 rel="noopener noreferrer">
                 Let's play!
             </a>
+            <ComplimentCount/>
         </header>
     );
 }
